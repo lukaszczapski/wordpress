@@ -1,4 +1,4 @@
-# Konfiguracja WordPressa
+yaml# Konfiguracja WordPressa
 wordpressUsername: admin
 wordpressPassword: MojeSilneHasloAplikacji
 wordpressEmail: admin@mojadomena.pl
@@ -23,3 +23,9 @@ mariadb:
 persistence:
   enabled: true
   size: 10Gi
+
+# Konfiguracja dostępu z internetu (Ingress)
+ingress:
+  enabled: true
+  ingressClassName: nginx                # Nazwa Twojego Ingress Controller (np. nginx, traefik)
+  hostname: mojadomena.pl
