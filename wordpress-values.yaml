@@ -1,0 +1,25 @@
+# Konfiguracja WordPressa
+wordpressUsername: admin
+wordpressPassword: MojeSilneHasloAplikacji
+wordpressEmail: admin@mojadomena.pl
+wordpressFirstName: Jan
+wordpressLastName: Kowalski
+wordpressBlogName: Moj Nowy Blog
+
+# Konfiguracja Bazy Danych (MariaDB instaluje się automatycznie wraz z WordPressem)
+mariadb:
+  enabled: true                          # Włącza automatyczną instalację bazy danych
+  auth:
+    rootPassword: HasloRootaBazyDanych
+    username: bn_wordpress               # Nazwa użytkownika bazy danych
+    password: HasloUzytkownikaBazyDanych # Hasło do bazy dla WordPressa
+    database: bitnami_wordpress          # Nazwa bazy danych
+  primary:
+    persistence:
+      enabled: true
+      size: 10Gi                         # Rozmiar dysku na dane bazy danych
+
+# Konfiguracja trwałości danych dla plików WordPressa (np. zdjęcia w wp-content)
+persistence:
+  enabled: true
+  size: 10Gi
