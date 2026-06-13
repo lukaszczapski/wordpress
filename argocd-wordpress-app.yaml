@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress-production
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # Źródło 1: Oficjalny Helm Chart od Bitnami
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: wordpress
+      targetRevision: 31.0.0
+      helm:
+        # Odniesienie do pliku values zdefiniowanego w drugim źródle ($values)
+        valueFiles:
+          - $values/wordpress-values.yaml
+
+    # Źródło 2: Twoje repozytorium Git z plikiem wartości (zmapowane jako zmienna $values)
+    - repoURL: https://github.com/lukaszczapski/wordpress.git
+      targetRevision: main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wp3
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true # Automatycznie tworzy namespace wordpress2, jeśli nie istnieje
