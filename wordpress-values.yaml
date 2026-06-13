@@ -26,6 +26,6 @@ persistence:
 
 # Konfiguracja dostępu z internetu (Ingress)
 ingress:
-  enabled: true
+  enabled: false
   ingressClassName: nginx                # Nazwa Twojego Ingress Controller (np. nginx, traefik)
   hostname: mojadomena.pl
