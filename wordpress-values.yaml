@@ -1,4 +1,4 @@
-yaml# Konfiguracja WordPressa
+# Konfiguracja WordPressa
 wordpressUsername: user
 wordpressPassword: "TwojeSilneHaslo123!"
 wordpressEmail: user@example.com
